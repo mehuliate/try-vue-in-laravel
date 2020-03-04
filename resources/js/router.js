@@ -30,6 +30,7 @@ const router = new Router({
         {
             path: '/outlets',
             component: IndexOutlet,
+            meta: { requiresAuth: true},
             children: [
                 {
                     path: '',

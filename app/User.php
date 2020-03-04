@@ -43,4 +43,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function outlet(){
+        return $this->belongTo(Outlet::class);
+    }
+
+    public function scopeCourier($query){
+        return $query->where('role', 3);
+    }
 }

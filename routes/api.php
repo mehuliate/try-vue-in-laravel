@@ -21,5 +21,8 @@ use Illuminate\Http\Request;
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('/logout', 'Auth\LoginController@logout');
     Route::resource('/outlets', 'API\OutletController')->except(['show']);
+    // Route::post('/couriers/{id}', 'API\UserController')->name('couriers.update');
+    Route::resource('/couriers', 'API\UserController')->except(['create', 'show', 'update']);
 });
